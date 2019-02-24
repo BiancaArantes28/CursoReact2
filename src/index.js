@@ -13,35 +13,34 @@ import Logout from './componentes/Logout';
 import LivrosBox from './Livro';
 import FormValidacao from './FormValidacao';
 
-// function verificaAutenticacao(nextState, replace){
-//     console.log(nextState);
-//     if(localStorage.getItem('auth-token') !== null){
-//         return true;
-//     }
-// }
-
-function verificaAutenticacao(nextState, replace) { 
-    console.log("cai aqui");
-    const match = matchPath('/timeline', {
-        path: nextState.match.url,
-        exact: true
-    })  
-
-    let valida = false
-    if (match !== null) {
-        valida = match.isExact
+function verificaAutenticacao(nextState, replace){
+    if(localStorage.getItem('auth-token') !== null){
+        return true;
     }
-
-    if (valida && localStorage.getItem('auth-token') === null) { 
-        // return <Redirect to={{
-        //     pathname: '/',
-        //     state:  {msg: 'Faça login para acessar esta página'}
-        // }}/>
-        return false;
-    }
-    // return <App/>
-    return true;
 }
+
+// function verificaAutenticacao(nextState, replace) { 
+//     console.log("cai aqui");
+//     const match = matchPath('/timeline', {
+//         path: nextState.match.url,
+//         exact: true
+//     })  
+
+//     let valida = false
+//     if (match !== null) {
+//         valida = match.isExact
+//     }
+
+//     if (valida && localStorage.getItem('auth-token') === null) { 
+//         // return <Redirect to={{
+//         //     pathname: '/',
+//         //     state:  {msg: 'Faça login para acessar esta página'}
+//         // }}/>
+//         return false;
+//     }
+//     // return <App/>
+//     return true;
+// }
 ReactDOM.render(
     
     (<Router>
